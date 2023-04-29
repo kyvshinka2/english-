@@ -17,14 +17,49 @@ if($mysql->connect_error){
     die("Ошибка: " . $mysql->connect_error);
 }
 
+// хеширование пароля
+$hash = password_hash($password, PASSWORD_BCRYPT);
 // обратное хеширование для проверки пароля
 $newPass = password_verify($password, $hash);
+// $query ="SELECT * FROM `Student` WHERE `Log_In` = '$login' AND `Password` = '$newPass'";
 
 
-$query ="SELECT * FROM `Student` WHERE `Log_In` = '$login' AND `Password` = '$newPass'";
+
+// проверка логина на совпадение данных
+$proverka = "SELECT count(Log_In) as users FROM Student WHERE Log_In = '$login';";
+$res = $mysql->query($proverka);
+// Получение строки результирующей таблицы в виде массива
+$row = $res->fetch_row();
+$count = $row[0];
+
+// проверка пароля на совпадение данных
+$proverka2 = "SELECT count(Log_In) as users FROM Student WHERE Password = '$hash';";
+$res2 = $mysql->query($proverka2);
+// Получение строки результирующей таблицы в виде массива
+$row2 = $res2->fetch_row();
+$count2 = $row2[0];
+
+// выполнение запроса
+// проверка логина
+if($count) {
+    // проверка пароля
+    if($count2) {
+        echo session_id(); 
+    $_SESSION ['name']= $login;
+    header('Location: ./profile.php');
+    } else {
+        echo "Неверный пароль";
+        exit();
+    }
+} else {
+    echo "Неверный логин";
+}
+
+
+
 
 // проверка на логин
-$proverka_login = "SELECT * FROM `Student` WHERE `Log_In` = `$login`";
+$proverka_login = "SELECT count(Log_In) as users FROM Student WHERE Log_In = '$login';";
 $proverka_password = "SELECT * FROM `Student` WHERE `Password` = '$newPass'";
 if(empty($proverka_login) && empty($proverka_password)) {
     echo "Неверный логин или пароль";

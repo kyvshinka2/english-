@@ -10,14 +10,16 @@ if(empty($name) || empty($login) || empty($password)) {
     exit();
 }
 
-// проверка на наличие пробелов в строке
-if (preg_match("|\s|", $login) ) {
+// проверка на наличие пробелов
+if(stristr($login," ")) {
     echo "Логин содержит пробельные символы, уберите их";
-} 
+    exit();
+}
 
-if (preg_match("|\s|", $password) ) {
+if(stristr($login," ")) {
     echo "Пароль содержит пробельные символы, уберите их";
-} 
+    exit();
+}
 
 // проверка длин строк
 if (mb_strlen($login) < 5 || mb_strlen($login) > 20) {
@@ -34,7 +36,7 @@ if (mb_strlen($login) < 5 || mb_strlen($login) > 20) {
 
 // хеширование пароля
 $hash = password_hash($password, PASSWORD_BCRYPT);
-//var_dump($hash);
+// var_dump($hash); 
 
 // подключение к бд
 $mysql = new mysqli('localhost', 'root', '', 'English_School');
