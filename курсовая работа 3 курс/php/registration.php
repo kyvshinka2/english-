@@ -35,7 +35,7 @@ if (mb_strlen($login) < 5 || mb_strlen($login) > 20) {
 }
 
 // хеширование пароля
-$hash = password_hash($password, PASSWORD_BCRYPT);
+$hash = password_hash($password, PASSWORD_DEFAULT);
 // var_dump($hash); 
 
 // подключение к бд
