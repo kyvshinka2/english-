@@ -159,16 +159,94 @@ body {
     text-align: center;
 }
 
+
+/* футер */
+
 .footer {
     background-color: #1F1F1F;
     padding-top: 25px;
     padding-bottom: 25px;
+    text-align: center;
 }
 
 .social {
     padding-top: 25px;
 }
 
+.ssal-footer {
+    width: 40px;
+    height: auto;
+}
+
 .ssal-footer:hover {
     background-color: rgba(0, 0, 0, .3);
+    border: none;
+    border-radius: 50px;
+}
+
+.img-block-footer img {
+    width: 300px;
+    height: auto;
+}
+
+.CopyRight {
+    color: #929292;
+}
+
+
+/* медиа запрос */
+
+@media (min-width: 280px) and (max-width: 300px) {
+    .width-img {
+        width: 250px;
+        height: auto;
+    }
+    .width-img-2 {
+        width: 250px;
+        height: auto;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 375px) {
+    .width-img {
+        width: 330px;
+        height: auto;
+    }
+    .width-img-2 {
+        width: 330px;
+        height: auto;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 390px) {
+    .width-img {
+        width: 330px;
+        height: auto;
+    }
+    .width-img-2 {
+        width: 330px;
+        height: auto;
+    }
+}
+
+@media (min-width: 390px) and (max-width: 414px) {
+    .width-img {
+        width: 330px;
+        height: auto;
+    }
+    .width-img-2 {
+        width: 330px;
+        height: auto;
+    }
+}
+
+@media (min-width: 414px) and (max-width: 450px) {
+    .width-img {
+        width: 330px;
+        height: auto;
+    }
+    .width-img-2 {
+        width: 330px;
+        height: auto;
+    }
 }

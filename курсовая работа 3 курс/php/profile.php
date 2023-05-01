@@ -12,6 +12,7 @@
     <!-- мои стили -->
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/autor.css">
+    <link rel="stylesheet" href="../style/profile.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@ session_start();
                 <a href="../page/master-class.html">Мастер классы</a>
             </div>
             <div class="col head-text">
-                <a href="../page/english-prosto.html">Английский просто</a>
+                <a href="./english-prosto.php">Английский просто</a>
             </div>
             <div class="col head-text">
                 <a href="../profile.php">Профиль</a>
@@ -44,10 +45,10 @@ session_start();
         <div class="container col-xxl-9 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-6 py-6">
                 <div class="col-9 col-sm-8 col-lg-6">
-                    <img src="../img/people.png" class="d-block mx-lg-auto" alt="Bootstrap Themes" width="600" height="400" loading="lazy">
+                    <img src="../img/people.png" class="d-block mx-lg-auto width-img" alt="Bootstrap Themes" width="600" height="400" loading="lazy">
                 </div>
                 <div class="col-lg-6">
-                    <img src="../img/logotype.png">
+                    <img class="width-img-2" src="../img/logotype.png">
                     <p class="lead">Онлайн-школа «Seminary» — современный сервис персонального обучения английскому языку. Помогаем нашим ученикам повышать уровень знаний и получать удовольствие от каждого урока.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <button onclick="document.location='./page/teacher.html'" type="button" class="btn btn-danger bat">Выбрать преподавателя</button>
@@ -95,6 +96,42 @@ session_start();
     </div>
 
     <!-- Профиль пользователя -->
+    <div class="link-prof">
+        <p>Все существующие страницы сайта: </p>
+        <p><a href="../index.html">Главная</a></p>
+        <p><a href="../page/teacher.html">Учителя</a></p>
+        <p><a href="../page/selection.html">Как проходит отбор учителей?</a></p>
+        <p><a href="../page/registr.html">Регистрация</a></p>
+        <p><a href="../page/autor.html">Авторизация</a></p>
+        <p><a href="../page/master-class.html">Бесплатные видео уроки</a></p>
+        <p><a href="./english-prosto.php">Скачать учебники и книги</a></p>
+        <p><a href="./profile.php">Профиль (вы здесь)</a></p>
+        <p> <a href="./course.php">Курсы школы</a></p>
+        <p> <a href="./otsav.php">Отзывы учеников</a></p>
+    </div>
+    
+
+
+    <a href="./exit.php">Выйти</a>
+
+    <!-- футер -->
+    <div class="container-fluid footer">
+        <div class="img-block-footer">
+            <a href="#page1"><img src="../img/logotype-for-black.png"></a>
+        </div>
+        <div class="social">
+            <nav>
+                <a href="#"><img class="ssal-footer" src="../img/Star 1.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 2.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 3.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 4.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 5.png"></a>
+            </nav>
+        </div><br>
+        <div>
+            <p class="CopyRight">CopyRight by: ~Kyvshinka Lay~</p>
+        </div>
+    </div>
     
 
 

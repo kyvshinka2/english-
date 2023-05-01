@@ -1,0 +1,18 @@
+.download-file {
+    text-decoration: none;
+    color: #E23016;
+    font-family: 'Arial Black';
+}
+
+.download-file:hover {
+    color: #711102;
+}
+
+.img-book {
+    width: 220px;
+    height: auto;
+}
+
+#img-book {
+    align-items: right;
+}

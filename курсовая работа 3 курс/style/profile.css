@@ -1,0 +1,23 @@
+/* ссылки на все страницы */
+
+.link-prof {
+    margin-left: 25px;
+}
+
+.link-prof p a {
+    text-decoration: none;
+    color: rgb(61, 0, 0);
+    font-size: 18px;
+    font-family: 'Arial';
+}
+
+.link-prof p {
+    color: rgb(249, 0, 0);
+    font-size: 24px;
+    font-family: 'Arial Black';
+}
+
+.link-prof a:hover {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
