@@ -1,5 +1,18 @@
 body {
     background-color: #F3F2F0;
+    cursor: url(../img/watermelon-cursor.svg), auto;
+}
+
+a:hover {
+    cursor: url(../img/watermelon-pointer.svg), auto;
+}
+
+input:hover {
+    cursor: url(../img/watermelon-pointer.svg), auto;
+}
+
+button:hover {
+    cursor: url(../img/watermelon-pointer.svg), auto;
 }
 
 
