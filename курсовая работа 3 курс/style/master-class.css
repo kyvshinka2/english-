@@ -31,3 +31,30 @@
     font-weight: 400;
     font-size: 20px;
 }
+
+/* преимущества школы */
+
+.plus {
+    text-align: center;
+}
+
+.block-plus-1 {
+    display: inline-block;
+}
+
+.block-plus {
+    padding-top: 30px;
+    padding-left: 25px;
+    float: left;
+}
+
+.block-plus p {
+    font-family: 'Arial Black';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #991300;
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 50px;
+}
