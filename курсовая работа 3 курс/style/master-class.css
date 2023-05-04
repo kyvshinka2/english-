@@ -5,6 +5,7 @@
     padding-left: 25px;
     padding-top: 25px;
     padding-bottom: 15px;
+    text-align: left;
 }
 
 .block-fon p {
@@ -57,4 +58,68 @@
     display: inline-block;
     padding-left: 25px;
     padding-right: 50px;
+}
+
+
+/* широкий блок с курсом и картинкой */
+
+.block-course {
+    background-color: #FFFFFF;
+    width: 50%;
+    height: auto;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 30px;
+}
+
+.block-course-2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    align-items: center;
+}
+
+.content ul {
+    text-align: left;
+}
+
+.content ul li{
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.head {
+    font-family: 'Arial Black';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 56px;
+color: #991300;
+}
+
+.price {
+    font-family: 'Arial Black';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 34px;
+color: #000000;
+}
+
+.dop-info p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
 }

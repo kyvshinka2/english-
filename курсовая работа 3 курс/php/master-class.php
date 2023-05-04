@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль</title>
+    <title>Школа английского Seminary</title>
     <!-- бутстрап -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- мои стили -->
+    <link rel="stylesheet" href="../style/book.css">
     <link rel="stylesheet" href="../style/main.css">
-    <link rel="stylesheet" href="../style/autor.css">
-    <link rel="stylesheet" href="../style/profile.css">
+    <link rel="stylesheet" href="../style/selection.css">
+    
 </head>
 
 <body>
-<?php
-session_start();
-?>
     <!-- шапка -->
     <div id="page1" class="container-fluid">
         <div class="row">
@@ -32,10 +30,10 @@ session_start();
                 <a href="../page/master-class.html">Мастер классы</a>
             </div>
             <div class="col head-text">
-                <a href="./english-prosto.php">Английский просто</a>
+                <a href="./english-prosto.html">Английский просто</a>
             </div>
             <div class="col head-text">
-                <a href="../profile.php">Профиль</a>
+                <a href="./profile.php">Профиль</a>
             </div>
         </div>
     </div>
@@ -51,7 +49,7 @@ session_start();
                     <img class="width-img-2" src="../img/logotype.png">
                     <p class="lead">Онлайн-школа «Seminary» — современный сервис персонального обучения английскому языку. Помогаем нашим ученикам повышать уровень знаний и получать удовольствие от каждого урока.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button onclick="document.location='./page/teacher.html'" type="button" class="btn btn-danger bat">Выбрать преподавателя</button>
+                        <button onclick="document.location='../index.html'" type="button" class="btn btn-danger bat">Главная</button>
                         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">История школы</button>
                     </div>
                 </div>
@@ -87,33 +85,60 @@ session_start();
         </div>
     </div>
 
-    <!-- блок -->
-    <div class="container-fluid block-reg">
-        <p>Здравствуйте, 
-        <?php 
-          echo $_SESSION['name']; 
-        ?> </p>
+    <?php
+// подключение к бд
+$mysql = new mysqli('localhost', 'root', '', 'English_School');
+$mysql->set_charset('utf8');
+if($mysql->connect_error){
+    die("Ошибка: " . $mysql->connect_error);
+    exit();
+} 
+    ?>
+
+
+    <!-- блок 2 -->
+    <div class="container-fluid block-2">
+        <p class="text-block-2">Курсы для изучения</p>
+    </div>
+    <br><br>
+
+    <!-- курсы -->
+
+    <?php
+      $query1 = "SELECT Name FROM `Product` WHERE ID = 18";
+      $zapr1 = $mysql->query($query1);
+      while ($row = mysqli_fetch_array($zapr1)) {
+        $name1 = $row['Name'];
+      }
+
+      $query2 = "SELECT Content FROM `Product` WHERE ID = 18";
+      $zapr2 = $mysql->query($query2);
+      while ($row = mysqli_fetch_array($zapr2)) {
+        $autor1 = $row['Content'];
+      }
+    ?>
+
+    <!-- Общий Разговорный -->
+    <div class="container container-style">
+        <div class="flex">
+            <div class="content">
+                <p class="number"><?php echo $name1; ?></p>
+                <p class="subtitle"><?php echo $autor1; ?></p>
+                <ul> 
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <a class="download-file" href="#">- Отправить заявку!! -</a>
+            </div>
+            <div class="img" id="img-book">
+                <img class="img-book" src="../img/boy_book.png">
+            </div>
+        </div>
     </div>
 
-    <!-- Профиль пользователя -->
-    <div class="link-prof">
-        <p>Все существующие страницы сайта: </p>
-        <p><a href="../index.html">Главная</a></p>
-        <p><a href="../page/teacher.html">Учителя</a></p>
-        <p><a href="../page/selection.html">Как проходит отбор учителей?</a></p>
-        <p><a href="../page/registr.html">Регистрация</a></p>
-        <p><a href="../page/autor.html">Авторизация</a></p>
-        <p><a href="../page/master-class.html">Бесплатные видео уроки</a></p>
-        <p><a href="./english-prosto.php">Скачать учебники и книги</a></p>
-        <p><a href="./profile.php">Профиль (вы здесь)</a></p>
-        <p><a href="./course.php">Курсы школы</a></p>
-        <p><a href="./otsav.php">Отзывы учеников</a></p>
-    </div>
     
 
-    <div class="exit">
-      <a href="./exit.php">Выйти</a>
-    </div>  
 
     <!-- футер -->
     <div class="container-fluid footer">
@@ -133,11 +158,7 @@ session_start();
             <p class="CopyRight">CopyRight by: ~Kyvshinka Lay~</p>
         </div>
     </div>
-    
 
-
-    <!-- мой js -->
-    <script src="../script/main.js"></script>
 </body>
 
 </html>

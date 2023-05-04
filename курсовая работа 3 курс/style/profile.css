@@ -21,3 +21,21 @@
     text-decoration: none;
     color: rgb(255, 0, 0);
 }
+
+.exit {
+    padding-left: 25px;
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    font-family: 'Arial';
+}
+
+.exit a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    font-family: 'Arial Black';
+    font-size: 24px;
+}
+
+.exit a:hover {
+    color: rgb(255, 0, 0);
+}
