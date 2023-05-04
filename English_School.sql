@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 28 2023 г., 20:39
+-- Время создания: Май 04 2023 г., 17:25
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.2.34
 
@@ -71,7 +71,18 @@ INSERT INTO `Product` (`ID`, `Name`, `Content`, `ID_Type`) VALUES
 (9, 'Английский для путешествий', 'Бронь отеля, общение с иностранцами', 4),
 (10, 'Общий Разговорный', 'Пиши, читай, говори', 4),
 (11, 'Подготовка к собеседованию', 'Собеседование', 4),
-(12, 'Подготовка к экзаменам', 'Экзамены', 4);
+(12, 'Подготовка к экзаменам', 'Экзамены', 4),
+(13, 'Английский язык', 'Артемий Беляев', 1),
+(14, 'Английский язык [Базовый курс]', 'Валерий Долгановский', 1),
+(15, 'Английский язык [Быстро расширяем словарный запас]', 'Сергей Сапцов, Татьяна Сапцова', 1),
+(16, 'Английский язык для медиков', 'Елена Владимировна Беликова', 1),
+(17, 'Английский язык с Г. Уэллсом. Человек-невидимка', 'Герберт Уэллс', 1),
+(18, 'Английский язык', 'Артемий Беляев', 1),
+(19, 'Английский язык [Базовый курс]', 'Валерий Долгановский', 1),
+(20, 'Английский язык [Быстро расширяем словарный запас]', 'Сергей Сапцов, Татьяна Сапцова', 1),
+(21, 'Английский язык для медиков', 'Елена Владимировна Беликова', 1),
+(22, 'Английский язык с Г. Уэллсом. Человек-невидимка', 'Герберт Уэллс', 1),
+(23, 'Английский язык \"Путешествия Гулливера\"', 'Джонатан Свифт', 1);
 
 -- --------------------------------------------------------
 
@@ -138,14 +149,7 @@ INSERT INTO `Student` (`ID`, `Full name`, `Log_In`, `Password`) VALUES
 (3, 'Чернышев Николай Васильевич', 'chern123', '$2y$10$Cp4SdqJ1P3lWFZvcYtOZV.eTmGO5TG36eBwOaHA6Xew5yXurVVW8S'),
 (4, 'Бузуев Никита Сергеевич', 'baz123', '$2y$10$Td4AlRs/DSGbypSTwWEsYeROXB/HrNiDgqMC7SafBu0M81YrYCSpK'),
 (5, 'Титенок Анастасия', 'tit123', '$2y$10$9NNTgwHbsQMp5n2lHSlRaO5QP5bdV336cCSp7l1gfLSDF42Q.l5I2'),
-(6, 'Пахомов Ярослав', 'are123', '$2y$10$SELBpV590KPE1w9RI1L/Reo3e2VokTOR3oqtctuo62NpAffJsNAGe'),
-(12, 'Геннадий Алексеевич', 'chern123', '$2y$10$EXeiSXF/wDhCblJ/Bl1Irux03PF0L0ZrjLZzs3HbrsTPLEIvL8dHG'),
-(13, 'Чернышев Николай Васильевич', 'chern1234', '$2y$10$t..T.q.QWdjTxba3LuuHeOIBTWL2ZI9dDeTQRp8Z2c8WTi60na2Eu'),
-(14, 'Чернышев Николай Васильевич', 'chern123', '$2y$10$WZIV6p5orecOd8Yfc0Esru3z3oBV.xveXQ0uUGtleWuHw1RspFzoG'),
-(15, 'Чернышев Николай Васильевич', 'chern123', '$2y$10$8bmsfeb2obTFy.0RE/PiuuWLhsAYpzCvbE.9LPK4hUGstYRnUwIvG'),
-(16, 'Чернышев Николай Васильевич', 'chern123', '$2y$10$mLFyIq7tS9JP0XrRR0jDBe/9FWs/BhYH5H46qPoLGl.CjkzRVZdUi'),
-(17, 'Чернышев Николай Васильевич', 'chern123', '$2y$10$AXEIszjneMHyVjL8Z5J5y.8O1XA8LNs/tob0HecpMaUdduJ2HGkLC'),
-(18, 'Чернышев Николай Васильевич', 'chern123456', '$2y$10$BFQWbHfJf6te1HEpo4CvceQLoNw5VRefE6CeTJPMo7XPedlsOh6QG');
+(6, 'Пахомов Ярослав', 'are123', '$2y$10$SELBpV590KPE1w9RI1L/Reo3e2VokTOR3oqtctuo62NpAffJsNAGe');
 
 -- --------------------------------------------------------
 
@@ -228,7 +232,7 @@ ALTER TABLE `Class`
 -- AUTO_INCREMENT для таблицы `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `Product_Type`
@@ -246,7 +250,7 @@ ALTER TABLE `Purchase history`
 -- AUTO_INCREMENT для таблицы `Student`
 --
 ALTER TABLE `Student`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `Teacher`

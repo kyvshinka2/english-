@@ -90,33 +90,33 @@
 
     <div class="plus">
         <div class="block-plus-1">
-        <div class="block-plus">
-            <img src="../img/method-icon.png">
-            <p>Коммуникативная методика</p>
-        </div>
-        <div class="block-plus">
-            <img src="../img/personal-icon.png">
-            <p>Интересные материалы</p>
-        </div>
-        <div class="block-plus">
-            <img src="../img/teacher-icon.png">
-            <p>Личный преподаватель</p>
-        </div>
+            <div class="block-plus">
+                <img src="../img/method-icon.png">
+                <p>Коммуникативная методика</p>
+            </div>
+            <div class="block-plus">
+                <img src="../img/personal-icon.png">
+                <p>Интересные материалы</p>
+            </div>
+            <div class="block-plus">
+                <img src="../img/teacher-icon.png">
+                <p>Личный преподаватель</p>
+            </div>
         </div>
         <div class="block-plus-1">
-        <div class="block-plus">
-            <img src="../img/Icon-2-materials-2.png">
-            <p>Платформа «Онлайн-класс»</p>
+            <div class="block-plus">
+                <img src="../img/Icon-2-materials-2.png">
+                <p>Платформа «Онлайн-класс»</p>
+            </div>
+            <div class="block-plus">
+                <img src="../img/skills-englex-d.png">
+                <p>1 месяц занятий Skills</p>
+            </div>
+            <div class="block-plus">
+                <img src="../img/chalkboard-icon-1.png">
+                <p>Бесплатный вводный урок</p>
+            </div>
         </div>
-        <div class="block-plus">
-            <img src="../img/skills-englex-d.png">
-            <p>1 месяц занятий Skills</p>
-        </div>
-        <div class="block-plus">
-            <img src="../img/chalkboard-icon-1.png">
-            <p>Бесплатный вводный урок</p>
-        </div>
-    </div>
 
         <!-- наши курсы -->
         <!-- основной блок (широкий) -->
@@ -124,99 +124,111 @@
             <p>Наши курсы:</p>
         </div>
 
-        <div class="block-course-2">
-        <div class="block-course">
-            <div class="content">
-                <p class="head"></p>
-                <p class="price"></p>
-                <ul>
-                    <li>Повышение уровня знаний</li>
-                    <li>70% урока - ваша разговорная практика</li>
-                    <li>Преодоление языкого и слухового барьера</li>
-                </ul>
-                <input type="button" value="Пройти обучение!">
-            </div>
-            <div class="content-img">
-                <img src="../img/boy_book.png">
+        <!-- моадльное окно -->
+        <div id="modal" class="modal bounceIn">
+            <div id="close_modal">+</div>
+            <div class="modal_txt">
+                <form action="../php/form-from-course.php" method="post">
+                    <input type="text" class="form-inp" name="name" id="name" placeholder="Введите имя"><br>
+                    <input type="text" class="form-inp" name="cuorse" id="cuorse" placeholder="Введите название курса"><br>
+                    <input type="submit" class="batton" value="Войти">
+                </form>
             </div>
         </div>
-        <div class="dop-info">
-            <p>С нами вы сможете заговорить за месяц!</p>
-            <input class="proba" type="button" value="Попробовать">
-        </div>
+
+        <div class="container block-course-2">
+            <div class="container block-course">
+                <div class="content">
+                    <p class="head"></p>
+                    <p class="price">от 960р</p>
+                    <ul>
+                        <li>Повышение уровня знаний</li>
+                        <li>70% урока - ваша разговорная практика</li>
+                        <li>Преодоление языкого и слухового барьера</li>
+                    </ul>
+                    <a class="open_modal" href="#open">- Пройти обучение! -</a>
+                </div>
+                <div class="content-img">
+                    <img src="../img/boy_book.png">
+                </div>
+            </div>
+            <div class="dop-info">
+                <p>С нами вы сможете заговорить за месяц!</p>
+                <a href="#">- Записаться -</a>
+            </div>
         </div>
 
         <!-- маленькие блоки с курсами -->
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 540р</p>
                 <ul>
-                    <li>Имитация реального собеседования</li>
-                    <li>Подготовка в сжатые сроки</li>
-                    <li>Составление резюме и cover letter</li>
+                    <li>Начните говорить на базовом английском</li>
+                    <li>Заложите крепкую базу знаний</li>
+                    <li>Учитесь в любом возрасте</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 1040р</p>
                 <ul>
                     <li>Универсальный курс для работы и бизнеса</li>
                     <li>Практика навыков делового общения</li>
                     <li>Деловая лексика</li>
                     <li>Переговоры и переписка</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 740р</p>
                 <ul>
                     <li>Улучшение успеваемости в школе</li>
                     <li>Интересные задания для любого возраста</li>
                     <li>Преподаватели, умеющие ладить с детьми</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 850р</p>
                 <ul>
                     <li>Общение за границей без словарей</li>
                     <li>Репетиция диалогов: аэропорт, отель и пр.</li>
                     <li>35 туристических тем или экспресс-курс</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
- 
+
         <!-- рейтинг лучших курсов -->
         <div class="block-fon">
             <p>Рейтинг лучших курсов</p>
         </div>
 
 
-        <div class="block-course">
+        <div class="container block-course">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 960р</p>
                 <ul>
                     <li>Повышение уровня знаний</li>
                     <li>70% урока - ваша разговорная практика</li>
                     <li>Преодоление языкого и слухового барьера</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
             <div class="content-img">
                 <img src="../img/boy_book.png">
@@ -224,56 +236,56 @@
         </div>
 
         <!-- маленькие блоки с курсами -->
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 940р</p>
                 <ul>
                     <li>Имитация реального собеседования</li>
                     <li>Подготовка в сжатые сроки</li>
                     <li>Составление резюме и cover letter</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
-        <div class="block-fon-2">
+        <div class="container block-fon-2">
             <div class="content">
                 <p class="head"></p>
-                <p class="price"></p>
+                <p class="price">от 370р</p>
                 <ul>
                     <li>Готовим к ELLTS, TOEFL, FCE, CAE, CPE</li>
                     <li>Проработка всех разделов экзамена</li>
                     <li>Имитация экзамена или его частей</li>
                 </ul>
-                <input type="button" value="Пройти обучение!">
+                <a href="#">- Пройти обучение! -</a>
             </div>
         </div>
 
 
 
-    <!-- футер -->
-    <div class="container-fluid footer">
-        <div class="img-block-footer">
-            <a href="#page1"><img src="../img/logotype-for-black.png"></a>
+        <!-- футер -->
+        <div class="container-fluid footer">
+            <div class="img-block-footer">
+                <a href="#page1"><img src="../img/logotype-for-black.png"></a>
+            </div>
+            <div class="social">
+                <nav>
+                    <a href="#"><img class="ssal-footer" src="../img/Star 1.png"></a>
+                    <a href="#"><img class="ssal-footer" src="../img/Star 2.png"></a>
+                    <a href="#"><img class="ssal-footer" src="../img/Star 3.png"></a>
+                    <a href="#"><img class="ssal-footer" src="../img/Star 4.png"></a>
+                    <a href="#"><img class="ssal-footer" src="../img/Star 5.png"></a>
+                </nav>
+            </div><br>
+            <div>
+                <p class="CopyRight">CopyRight by: ~Kyvshinka Lay~</p>
+            </div>
         </div>
-        <div class="social">
-            <nav>
-                <a href="#"><img class="ssal-footer" src="../img/Star 1.png"></a>
-                <a href="#"><img class="ssal-footer" src="../img/Star 2.png"></a>
-                <a href="#"><img class="ssal-footer" src="../img/Star 3.png"></a>
-                <a href="#"><img class="ssal-footer" src="../img/Star 4.png"></a>
-                <a href="#"><img class="ssal-footer" src="../img/Star 5.png"></a>
-            </nav>
-        </div><br>
-        <div>
-            <p class="CopyRight">CopyRight by: ~Kyvshinka Lay~</p>
-        </div>
-    </div>
 
 
-    <!-- мой js -->
-    <script src="../script/main.js"></script>
+        <!-- мой js -->
+        <script src="../javascript/modal.js"></script>
 </body>
 
 </html>
