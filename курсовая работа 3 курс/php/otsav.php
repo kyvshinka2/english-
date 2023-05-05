@@ -11,14 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- мои стили -->
     <link rel="stylesheet" href="../style/main.css">
-    <link rel="stylesheet" href="../style/autor.css">
-    <link rel="stylesheet" href="../style/profile.css">
+    <link rel="stylesheet" href="../style/otsav.css">
 </head>
 
 <body>
-<?php
-session_start();
-?>
     <!-- шапка -->
     <div id="page1" class="container-fluid">
         <div class="row">
@@ -35,7 +31,7 @@ session_start();
                 <a href="./english-prosto.php">Английский просто</a>
             </div>
             <div class="col head-text">
-                <a href="../profile.php">Профиль</a>
+                <a href="./profile.php">Профиль</a>
             </div>
         </div>
     </div>
@@ -51,7 +47,7 @@ session_start();
                     <img class="width-img-2" src="../img/logotype.png">
                     <p class="lead">Онлайн-школа «Seminary» — современный сервис персонального обучения английскому языку. Помогаем нашим ученикам повышать уровень знаний и получать удовольствие от каждого урока.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button onclick="document.location='./page/teacher.html'" type="button" class="btn btn-danger bat">Выбрать преподавателя</button>
+                        <button onclick="document.location='../index.html'" type="button" class="btn btn-danger bat">Главная</button>
                         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">История школы</button>
                     </div>
                 </div>
@@ -89,88 +85,40 @@ session_start();
 
     <!-- блок -->
     <div class="container-fluid block-reg">
-        <p>Здравствуйте, 
-        <?php 
-          echo $_SESSION['name']; 
-        ?> </p>
+        <p>Оставьте отзыв</p>
     </div>
 
-    <!-- Профиль пользователя -->
-    <div class="link-prof">
-        <p>Все существующие страницы сайта: </p>
-        <p><a href="../index.html">Главная</a></p>
-        <p><a href="../page/teacher.html">Учителя</a></p>
-        <p><a href="../page/selection.html">Как проходит отбор учителей?</a></p>
-        <p><a href="../page/registr.html">Регистрация</a></p>
-        <p><a href="../page/autor.html">Авторизация</a></p>
-        <p><a href="./master-class.php">Доступные курсы</a></p>
-        <p><a href="./english-prosto.php">Скачать учебники и книги</a></p>
-        <p><a href="./profile.php">Профиль (вы здесь)</a></p>
-        <p><a href="./course.php">Курсы школы</a></p>
-        <p><a href="./otsav.php">Отзывы учеников</a></p>
-    </div>
+    <!-- форма для заполнения -->
+    <form class="form" action="./otzav.php" method="post">
+        <input type="text" class="form-inp" name="login" id="login" placeholder="Введите логин"><br>
+        <input type="text" class="form-inp-2" name="content" id="content" placeholder="Введите отзыв"><br>
+        <input type="submit" class="batton" value="Отправить">
+    </form><br>
     
-
-    <div class="exit">
-      <a href="./exit.php">Выйти</a>
-    </div>  
-
-    <!-- курсы, на которые зарегестрировалс япользователь -->
-
-    <div class="container-fluid block-reg">
-        <p>Ваши курсы</p>
-    </div>
-
-    <div class="course-block">
-        <p> <?php echo $_SESSION['$course']?> </p>
-    </div>
-    <br>
-
-<!-- вывод результатов поиска + поисковая строка -->
-    <div class="container-fluid block-reg">
-        <p>Посмотрите какие продукты у нас есть</p>
-    </div>
-
-    <!-- поисковая строка на товары в интернет-ресурсе -->
-    <form class="poisk" method="POST">
-      <input class="form-inp" type="text" name="query" id="query" placeholder="Введите запрос...">
-      <button class="batton" type="submit">Поиск</button>
-    </form>
-
-    <!-- php код -->
+<div class="otzav">
+    <!-- вывод отзывов из бд -->
     <?php
-// Получение запроса из формы
-$query = $_POST['query'];
-// проверка на пустые поля 
-if(empty($query)) {
-    echo "Не оставляйте пустые поля!";
-    exit();
-}
-// подключение к бд
-$mysql = new mysqli('localhost', 'root', '', 'English_School');
-$mysql->set_charset('utf8');
-if($mysql->connect_error){
-    die("Ошибка: " . $mysql->connect_error);
-}
+    // подключение к бд
+    $mysql = new mysqli('localhost', 'root', '', 'English_School');
+    $mysql->set_charset('utf8');
+    if($mysql->connect_error){
+        die("Ошибка: " . $mysql->connect_error);
+    }
 
-// Выполнение запроса к базе данных
-$sql = "SELECT * FROM `Product` WHERE `Name` LIKE '%$query%'";
-$result = $mysql->query($sql);
+$sql = "SELECT Log_In, Comment FROM Feedback";
+$result2 = $mysql->query($sql);
+// вывод отзывов
+    ?>
+    <p><?php 
+    while ($row = mysqli_fetch_assoc($result2)) {
+        echo "<b>".$row['Log_In']."</b>"."<br>";
+        echo $row['Comment']."<br>"."<br>";
+    }
 
-// Вывод результатов поиска
-while ($row = mysqli_fetch_assoc($result)) {
-    echo "Найдено: ";
-    echo $row['Name']."<br>";
-}
-
-// Закрытие соединения с базой данных
 mysqli_close($mysql);
 ?>
-
-    <div class="result-poisk">
-        <p><?php echo $_SESSION['result']; ?></p>
-    </div> <br>
-
+</p>
+    </div>
     
     <!-- футер -->
     <div class="container-fluid footer">

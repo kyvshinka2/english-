@@ -42,6 +42,7 @@
 
 
 /* блок с курсами, на которые отправлена заявка */
+
 .course-block {
     padding-left: 25px;
 }
@@ -50,4 +51,20 @@
     color: rgb(0, 0, 0);
     font-size: 18px;
     font-family: 'Arial Black';
+}
+
+
+/* поисковая строка */
+
+.poisk {
+    padding-left: 25px;
+}
+
+.result-poisk {
+    padding-left: 25px;
+}
+
+.result-poisk p {
+    font-family: 'Arial';
+    font-size: 18px;
 }

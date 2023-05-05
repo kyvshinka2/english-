@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 04 2023 г., 17:25
+-- Время создания: Май 05 2023 г., 20:13
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.2.34
 
@@ -41,6 +41,27 @@ CREATE TABLE `Class` (
 
 INSERT INTO `Class` (`ID`, `ID student`, `ID teacher`, `Date`, `Type of activity`) VALUES
 (1, 1, 1, '2023-04-13', 'Урок');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `Feedback`
+--
+
+CREATE TABLE `Feedback` (
+  `ID` int(11) NOT NULL,
+  `Log_In` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Comment` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `Feedback`
+--
+
+INSERT INTO `Feedback` (`ID`, `Log_In`, `Comment`) VALUES
+(4, 'chern123', 'Школа самая лучшая, спасибо вам'),
+(22, 'baz123', 'Школа принесла мне немало знаний, я научился понимать фильмы на английском языке и даже разговаривать с иностранцами'),
+(23, 'kuasb123', 'Ужос');
 
 -- --------------------------------------------------------
 
@@ -187,6 +208,12 @@ ALTER TABLE `Class`
   ADD KEY `ID teacher` (`ID teacher`);
 
 --
+-- Индексы таблицы `Feedback`
+--
+ALTER TABLE `Feedback`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Индексы таблицы `Product`
 --
 ALTER TABLE `Product`
@@ -227,6 +254,12 @@ ALTER TABLE `Teacher`
 --
 ALTER TABLE `Class`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `Feedback`
+--
+ALTER TABLE `Feedback`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `Product`
