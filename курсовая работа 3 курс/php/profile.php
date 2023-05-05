@@ -29,7 +29,7 @@ session_start();
                 <a href="../page/registr.html">Присоеденяйся</a>
             </div>
             <div class="col head-text">
-                <a href="../page/master-class.html">Мастер классы</a>
+                <a href="./master-class.php">Мастер классы</a>
             </div>
             <div class="col head-text">
                 <a href="./english-prosto.php">Английский просто</a>
@@ -103,7 +103,7 @@ session_start();
         <p><a href="../page/selection.html">Как проходит отбор учителей?</a></p>
         <p><a href="../page/registr.html">Регистрация</a></p>
         <p><a href="../page/autor.html">Авторизация</a></p>
-        <p><a href="../page/master-class.html">Бесплатные видео уроки</a></p>
+        <p><a href="./master-class.php">Доступные курсы</a></p>
         <p><a href="./english-prosto.php">Скачать учебники и книги</a></p>
         <p><a href="./profile.php">Профиль (вы здесь)</a></p>
         <p><a href="./course.php">Курсы школы</a></p>
@@ -114,6 +114,62 @@ session_start();
     <div class="exit">
       <a href="./exit.php">Выйти</a>
     </div>  
+
+    <!-- курсы, на которые зарегестрировалс япользователь -->
+
+    <div class="container-fluid block-reg">
+        <p>Ваши курсы</p>
+    </div>
+
+    <div class="course-block">
+        <p> <?php echo $_SESSION['$course']?> </p>
+    </div>
+    <br>
+
+<!-- вывод результатов поиска + поисковая строка -->
+    <div class="container-fluid block-reg">
+        <p>Посмотрите какие продукты у нас есть</p>
+    </div>
+
+    <!-- поисковая строка на товары в интернет-ресурсе -->
+    <form method="POST">
+      <input class="form-inp" type="text" name="query" id="query" placeholder="Введите запрос...">
+      <button class="batton" type="submit">Поиск</button>
+    </form>
+
+    <!-- php код -->
+    <?php
+// Получение запроса из формы
+$query = $_POST['query'];
+// проверка на пустые поля 
+if(empty($query)) {
+    echo "Не оставляйте пустые поля!";
+    exit();
+}
+// подключение к бд
+$mysql = new mysqli('localhost', 'root', '', 'English_School');
+$mysql->set_charset('utf8');
+if($mysql->connect_error){
+    die("Ошибка: " . $mysql->connect_error);
+}
+
+// Выполнение запроса к базе данных
+$sql = "SELECT * FROM `Product` WHERE `Name` LIKE '%$query%'";
+$result = $mysql->query($sql);
+
+// Вывод результатов поиска
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "Найдено: ";
+    echo $row['Name']."<br>";
+}
+
+// Закрытие соединения с базой данных
+mysqli_close($mysql);
+?>
+
+    <div class="result-poisk">
+        <p><?php echo $_SESSION['result']; ?></p>
+    </div>
 
     <!-- футер -->
     <div class="container-fluid footer">
@@ -134,7 +190,24 @@ session_start();
         </div>
     </div>
     
-
+<!-- футер -->
+<div class="container-fluid footer">
+        <div class="img-block-footer">
+            <a href="#page1"><img src="../img/logotype-for-black.png"></a>
+        </div>
+        <div class="social">
+            <nav>
+                <a href="#"><img class="ssal-footer" src="../img/Star 1.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 2.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 3.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 4.png"></a>
+                <a href="#"><img class="ssal-footer" src="../img/Star 5.png"></a>
+            </nav>
+        </div><br>
+        <div>
+            <p class="CopyRight">CopyRight by: ~Kyvshinka Lay~</p>
+        </div>
+    </div>
 
     <!-- мой js -->
     <script src="../script/main.js"></script>

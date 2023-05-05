@@ -27,7 +27,7 @@
                 <a href="../page/registr.html">Присоеденяйся</a>
             </div>
             <div class="col head-text">
-                <a href="../page/master-class.html">Мастер классы</a>
+                <a href="./master-class.php">Мастер классы</a>
             </div>
             <div class="col head-text">
                 <a href="./english-prosto.html">Английский просто</a>

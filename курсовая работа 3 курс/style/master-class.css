@@ -206,6 +206,24 @@
     max-width: 800px;
 }
 
+.dop-info p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.dop-info a {
+    text-decoration: none;
+    color: #E23016;
+    font-family: 'Arial Black';
+}
+
+.dop-info a:hover {
+    color: #991300;
+}
 
 /* форма отправки в модальном окне */
 

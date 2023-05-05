@@ -39,3 +39,15 @@
 .exit a:hover {
     color: rgb(255, 0, 0);
 }
+
+
+/* блок с курсами, на которые отправлена заявка */
+.course-block {
+    padding-left: 25px;
+}
+
+.course-block p {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: 'Arial Black';
+}
