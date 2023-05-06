@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 05 2023 г., 20:13
--- Версия сервера: 5.7.39
+-- Время создания: Май 06 2023 г., 08:02
+-- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Class` (
-  `ID` int(11) NOT NULL COMMENT 'AUTO_INCREMENT',
-  `ID student` int(11) NOT NULL,
-  `ID teacher` int(11) NOT NULL,
+  `ID` int NOT NULL COMMENT 'AUTO_INCREMENT',
+  `ID student` int NOT NULL,
+  `ID teacher` int NOT NULL,
   `Date` date NOT NULL,
-  `Type of activity` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL
+  `Type of activity` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -49,9 +49,9 @@ INSERT INTO `Class` (`ID`, `ID student`, `ID teacher`, `Date`, `Type of activity
 --
 
 CREATE TABLE `Feedback` (
-  `ID` int(11) NOT NULL,
-  `Log_In` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Comment` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ID` int NOT NULL,
+  `Log_In` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Comment` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -61,7 +61,9 @@ CREATE TABLE `Feedback` (
 INSERT INTO `Feedback` (`ID`, `Log_In`, `Comment`) VALUES
 (4, 'chern123', 'Школа самая лучшая, спасибо вам'),
 (22, 'baz123', 'Школа принесла мне немало знаний, я научился понимать фильмы на английском языке и даже разговаривать с иностранцами'),
-(23, 'kuasb123', 'Ужос');
+(23, 'kuasb123', 'Ужос'),
+(24, 'Nastya123', 'Какая хорошая школа'),
+(25, 'Migula228', 'Крутая школа');
 
 -- --------------------------------------------------------
 
@@ -70,10 +72,10 @@ INSERT INTO `Feedback` (`ID`, `Log_In`, `Comment`) VALUES
 --
 
 CREATE TABLE `Product` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Content` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ID_Type` int(11) NOT NULL
+  `ID` int NOT NULL,
+  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Content` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ID_Type` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -112,8 +114,8 @@ INSERT INTO `Product` (`ID`, `Name`, `Content`, `ID_Type`) VALUES
 --
 
 CREATE TABLE `Product_Type` (
-  `ID` int(11) NOT NULL,
-  `Type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ID` int NOT NULL,
+  `Type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -133,9 +135,9 @@ INSERT INTO `Product_Type` (`ID`, `Type`) VALUES
 --
 
 CREATE TABLE `Purchase history` (
-  `ID` int(11) NOT NULL,
-  `ID_Product` int(11) NOT NULL,
-  `ID_Student` int(11) NOT NULL,
+  `ID` int NOT NULL,
+  `ID_Product` int NOT NULL,
+  `ID_Student` int NOT NULL,
   `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -154,10 +156,10 @@ INSERT INTO `Purchase history` (`ID`, `ID_Product`, `ID_Student`, `Date`) VALUES
 --
 
 CREATE TABLE `Student` (
-  `ID` int(11) NOT NULL,
-  `Full name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Log_In` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ID` int NOT NULL,
+  `Full name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Log_In` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -179,11 +181,11 @@ INSERT INTO `Student` (`ID`, `Full name`, `Log_In`, `Password`) VALUES
 --
 
 CREATE TABLE `Teacher` (
-  `ID` int(11) NOT NULL,
-  `Full_Name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Diploma` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Number` int(11) NOT NULL,
-  `City` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ID` int NOT NULL,
+  `Full_Name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Diploma` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Number` int NOT NULL,
+  `City` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -231,7 +233,8 @@ ALTER TABLE `Product_Type`
 --
 ALTER TABLE `Purchase history`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_Product` (`ID_Product`);
+  ADD KEY `ID_Product` (`ID_Product`),
+  ADD KEY `ID_Student` (`ID_Student`);
 
 --
 -- Индексы таблицы `Student`
@@ -253,43 +256,43 @@ ALTER TABLE `Teacher`
 -- AUTO_INCREMENT для таблицы `Class`
 --
 ALTER TABLE `Class`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=2;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `Feedback`
 --
 ALTER TABLE `Feedback`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT для таблицы `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `Product_Type`
 --
 ALTER TABLE `Product_Type`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `Purchase history`
 --
 ALTER TABLE `Purchase history`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `Student`
 --
 ALTER TABLE `Student`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `Teacher`
 --
 ALTER TABLE `Teacher`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -312,7 +315,8 @@ ALTER TABLE `Product`
 -- Ограничения внешнего ключа таблицы `Purchase history`
 --
 ALTER TABLE `Purchase history`
-  ADD CONSTRAINT `purchase history_ibfk_1` FOREIGN KEY (`ID_Product`) REFERENCES `Product` (`ID`);
+  ADD CONSTRAINT `purchase history_ibfk_1` FOREIGN KEY (`ID_Product`) REFERENCES `Product` (`ID`),
+  ADD CONSTRAINT `purchase history_ibfk_2` FOREIGN KEY (`ID_Student`) REFERENCES `Student` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
